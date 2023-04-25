@@ -13,27 +13,30 @@ function generateGrid(width = 16, height = 16){
 
         generateBox(column, height);
     }
-
-    console.log(`Added new column row to grid with width of: ${width}`);
 }
 
 //When the first row is finished create elements per generated column,
 //this is again decided by the chosen height pixel amount. default 16.
 function generateBox(column, height){
-for (let i = 0; i < height; i++) {
-    const box = document.createElement('div');
-    box.classList.add('box');
-    box.className = "box";
+    let containerWidth = document.getElementById('container').clientWidth;
 
-    column.appendChild(box);
+    for (let i = 0; i < height; i++) {
+        const box = document.createElement('div');
+        box.classList.add('box');
 
-    console.log("Added new column row to grid");
+        let size = containerWidth / height;
+        console.log(size + " container width" + containerWidth);
+        box.style.width = size + "px";
+        box.style.height = size + "px";
+        box.className = "box";
 
-    //Adding hover event to the box
-    box.addEventListener('mouseover', function(e) {
-        e.target.style.background = 'white';
-      });
+        column.appendChild(box);
+
+        //Adding hover event to the box
+        box.addEventListener('mouseover', function(e) {
+            e.target.style.background = 'white';
+        });
+    }
 }
-}
 
-generateGrid(100, 100);
+generateGrid(50, 50);
