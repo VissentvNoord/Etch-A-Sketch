@@ -1,0 +1,18 @@
+#container{
+display: flex;
+justify-content: center;
+}
+
+.box{
+    background-color: blue;
+    width: 10px;
+    height: 10px;
+}
+
+.column{
+    display: flex;
+    flex: 0 1 0;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+}
